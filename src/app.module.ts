@@ -5,7 +5,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typeorm.config';
 import { UsersModule } from './modules/users/users.module';
-import { CategoryModule } from './modules/category/category.module';
+import { TransactionsModule } from './modules/transactions/transactions.module';
+import { CategoriesModule } from './modules/categories/categories.module';
+import { GoalsModule } from './modules/goals/goals.module';
+import { AiModule } from './modules/ai/ai.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -20,9 +24,14 @@ import { CategoryModule } from './modules/category/category.module';
       inject: [ConfigService],
     }),
     UsersModule,
-    CategoryModule,
+    TransactionsModule,
+    CategoriesModule,
+    GoalsModule,
+    AiModule,
+    AuthModule,
+    // AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
